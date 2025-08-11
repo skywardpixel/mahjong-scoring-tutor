@@ -9,8 +9,11 @@ function Lesson({ lesson, onComplete, onNext, onPrevious, hasNext, hasPrevious, 
   const handleContinue = () => {
     if (lesson.quiz && !showQuiz) {
       setShowQuiz(true)
-    } else if (quizCompleted && hasNext) {
-      onNext()
+    } else if (hasNext) {
+      // If no quiz or quiz completed, go to next lesson
+      if (!lesson.quiz || quizCompleted) {
+        onNext()
+      }
     }
   }
 

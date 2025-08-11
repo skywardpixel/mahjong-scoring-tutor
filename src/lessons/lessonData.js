@@ -246,9 +246,11 @@ export const getLessonById = (id) => {
 };
 
 export const getNextLesson = (currentId) => {
-  return lessons.find(lesson => lesson.id === currentId + 1);
+  const nextId = currentId + 1;
+  return (currentId < 1 || nextId > 16) ? undefined : lessons.find(lesson => lesson.id === nextId);
 };
 
 export const getPreviousLesson = (currentId) => {
-  return lessons.find(lesson => lesson.id === currentId - 1);
+  const prevId = currentId - 1;
+  return (currentId > 16 || prevId < 1) ? undefined : lessons.find(lesson => lesson.id === prevId);
 };
