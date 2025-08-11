@@ -66,6 +66,21 @@ npm run build
 npm run preview
 ```
 
+### Run Tests
+```bash
+# Run tests in watch mode
+npm test
+
+# Run tests once
+npm run test:run
+
+# Run tests with UI
+npm run test:ui
+
+# Run tests with coverage
+npm run test:coverage
+```
+
 ## 🎓 Learning Path
 
 ### Beginner Track (Lessons 1-6)
@@ -88,6 +103,7 @@ npm run preview
 - **Frontend**: React 18 + Vite
 - **Styling**: Pure CSS with custom properties
 - **State Management**: React Hooks + localStorage
+- **Testing**: Vitest + Testing Library
 - **Build Tool**: Vite
 - **Graphics**: Custom SVG tile system
 
