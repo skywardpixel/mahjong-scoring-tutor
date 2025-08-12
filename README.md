@@ -9,7 +9,7 @@ An interactive web application that teaches Japanese Mahjong scoring from the gr
 ## 🎯 Features
 
 ### 📚 Comprehensive Lesson System
-- **16 structured lessons** covering all scoring fundamentals
+- **Comprehensive structured lessons** covering all scoring fundamentals
 - **Progressive difficulty** from basic concepts to advanced calculations
 - **Interactive quizzes** with immediate feedback
 - **Visual tile displays** with custom SVG graphics
@@ -22,6 +22,7 @@ An interactive web application that teaches Japanese Mahjong scoring from the gr
 - **Payment structures** - Ron vs Tsumo differences
 - **Riichi mechanics** - Cost, bonus collection, and strategy
 - **Theory vs Practice** - Formula calculations vs real-world payment tables
+- **Comprehensive Dora System** - All dora types, mechanics, and integration
 
 ### 🎯 Practice Mode
 - **Algorithmic hand generation** - Truly random hands, not presets
@@ -95,10 +96,18 @@ npm run test:coverage
 - Complete hand calculations
 - Practical examples and edge cases
 
-### Advanced Track (Lessons 13-16)
+### Advanced Track (Lessons 13-20)
 - Riichi system mechanics
 - Theory vs real-world applications
 - Complete scoring scenarios
+- Introduction to dora system
+
+### Expert Track (Advanced Lessons)
+- Ura dora mechanics and timing
+- Kan dora rules and interactions
+- Multiple dora scenarios
+- Complete dora integration with scoring
+- Advanced practical examples
 
 ## 🛠️ Technology Stack
 
@@ -212,7 +221,8 @@ npm run preview      # Preview production build
 ## 🎯 Roadmap
 
 ### Phase 1 (Current)
-- ✅ Complete lesson system (16 lessons)
+- ✅ Complete lesson system with comprehensive dora coverage
+- ✅ Comprehensive dora education
 - ✅ Practice mode with random hands
 - ✅ Modern responsive design
 - ✅ Progress tracking

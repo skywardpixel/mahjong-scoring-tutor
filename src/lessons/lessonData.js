@@ -367,7 +367,230 @@ export const lessons = [
       };
     })(),
   },
+  {
+    id: 17,
+    title: "Introduction to Dora",
+    type: "concept",
+    content: {
+      text: "Dora are bonus tiles that add han to your hand. They are determined by indicator tiles revealed on the table.",
+      visual:
+        "Dora Indicator: 🀈 (2-man)\nDora Tile: 🀉 (3-man)\n\nIf your hand contains 🀉, you get +1 han per tile",
+      keyPoint:
+        "Dora indicator shows what comes BEFORE the dora. 2-man indicator = 3-man is dora. Dora adds han, not fu.",
+    },
+    quiz: (() => {
+      const { options, correct } = shuffleOptions(
+        ["Fu points", "Han points", "Base points"],
+        1,
+      );
+      return {
+        question: "What do dora tiles add to your hand?",
+        options,
+        correct,
+      };
+    })(),
+  },
+  {
+    id: 18,
+    title: "Dora Indicator Rules",
+    type: "concept",
+    content: {
+      text: "The dora indicator tells you which tile is dora. The actual dora is the NEXT tile in sequence.",
+      visual:
+        "Indicators → Dora:\n🀇→🀈, 🀈→🀉, 🀉→🀊 (Man sequence)\n🀙→🀚, 🀚→🀛, 🀛→🀜 (Pin sequence)\n🀐→🀑, 🀑→🀒, 🀒→🀓 (Sou sequence)\n🀏→🀇, 🀡→🀙, 🀘→🀐 (9 wraps to 1)\n🀀→🀁→🀂→🀃→🀀 (Wind cycle)\n🀅→🀆→🀄→🀅 (Dragon cycle)",
+      keyPoint:
+        "Sequences wrap around: 9→1, North→East, Red→Green. Each dora tile in your hand = +1 han.",
+    },
+    quiz: (() => {
+      const { options, correct } = shuffleOptions(
+        ["🀇 (1-man)", "🀉 (3-man)", "🀏 (9-man)"],
+        1,
+      );
+      return {
+        question: "If the dora indicator is 🀈 (2-man), which tile is dora?",
+        options,
+        correct,
+      };
+    })(),
+  },
+  {
+    id: 19,
+    title: "Counting Dora in Your Hand",
+    type: "practice",
+    content: {
+      text: "Count each dora tile in your hand individually. Multiple copies = multiple han.",
+      visual:
+        "Hand: 🀉🀉🀉 🀊🀋🀌 🀍🀎🀏 🀚🀛🀜 🀀🀀\nDora indicator: 🀈 (so 🀉 is dora)\nDora count: 3 tiles × 1 han each = +3 han total",
+      keyPoint:
+        "Each individual dora tile adds 1 han. Triplet of dora = +3 han, pair of dora = +2 han.",
+    },
+    quiz: (() => {
+      const { options, correct } = shuffleOptions(
+        ["+2 han", "+4 han", "+1 han"],
+        0,
+      );
+      return {
+        question:
+          "Your hand has two 5-pin tiles and the dora indicator shows 4-pin. How many han from dora?",
+        options,
+        correct,
+      };
+    })(),
+  },
+  {
+    id: 20,
+    title: "Advanced Dora Types",
+    type: "concept",
+    content: {
+      text: "There are several types of dora beyond the basic dora indicator:",
+      visual:
+        "Dora Types:\n• Regular Dora: From dora indicator\n• Ura Dora: Hidden bonus (riichi only)\n• Kan Dora: Extra indicators from kan calls\n• Red Dora: Special red 5-tiles (some rules)\n\nExample: 2 regular + 1 ura + 1 kan = +4 han total",
+      keyPoint:
+        "Ura dora only applies if you declared riichi. Kan dora adds new indicators. All dora types stack together.",
+    },
+    quiz: (() => {
+      const { options, correct } = shuffleOptions(
+        [
+          "Only if you win by tsumo",
+          "Only if you declared riichi",
+          "Always available",
+        ],
+        1,
+      );
+      return {
+        question: "When can you count ura dora han?",
+        options,
+        correct,
+      };
+    })(),
+  },
+  {
+    id: 21,
+    title: "Ura Dora Mechanics",
+    type: "concept",
+    content: {
+      text: "Ura dora are hidden bonus dora that only apply when you win with riichi. They are revealed from underneath the regular dora indicators.",
+      visual:
+        "Regular dora: 🀈 (visible) → 🀉 is dora\nUra dora: 🀛 (hidden under 🀈) → 🀜 is ura dora\n\nRiichi + Win = Check ura dora\nNo Riichi = No ura dora (even if you win)",
+      keyPoint:
+        "Ura dora only applies to riichi winners. Each ura dora tile in your hand = +1 han, just like regular dora.",
+    },
+    quiz: (() => {
+      const { options, correct } = shuffleOptions(
+        [
+          "Yes, always",
+          "Only if you declared riichi",
+          "Only if you win by tsumo",
+        ],
+        1,
+      );
+      return {
+        question: "When can you count ura dora han in your winning hand?",
+        options,
+        correct,
+      };
+    })(),
+  },
+  {
+    id: 22,
+    title: "Kan Dora Rules and Timing",
+    type: "concept",
+    content: {
+      text: "When you call kan (4-of-a-kind), a new dora indicator is immediately revealed. This creates additional dora for the current hand.",
+      visual:
+        "Game starts: 1 dora indicator\nPlayer calls kan: 2nd indicator revealed\nAnother kan: 3rd indicator revealed\nMax: 5 dora indicators (4 kans + original)\n\nKan dora timing: Revealed immediately when kan is declared",
+      keyPoint:
+        "Kan dora applies to ALL players still in the hand, not just the person who called kan. New dora is active immediately.",
+    },
+    quiz: (() => {
+      const { options, correct } = shuffleOptions(
+        [
+          "Only the kan caller",
+          "All players still in hand",
+          "Only the eventual winner",
+        ],
+        1,
+      );
+      return {
+        question: "Who can benefit from newly revealed kan dora?",
+        options,
+        correct,
+      };
+    })(),
+  },
+  {
+    id: 23,
+    title: "Multiple Dora Scenarios",
+    type: "practice",
+    content: {
+      text: "Real games often have multiple dora sources. Let's practice counting them all correctly.",
+      visual:
+        "Hand: 🀉🀉🀉 🀛🀛🀛 🀊🀋🀌 🀍🀎🀏 🀀🀀\nWin: Riichi + Tsumo\n\nDora indicators:\n• Regular: 🀈 → 🀉 is dora (3 tiles = +3 han)\n• Kan: 🀚 → 🀛 is dora (3 tiles = +3 han)\n• Ura: 🀇 → 🀈 is ura dora (0 tiles = +0 han)\n\nTotal dora han: 3 + 3 + 0 = +6 han",
+      keyPoint:
+        "Count each dora type separately, then add them together. Each individual tile counts as +1 han.",
+    },
+    quiz: (() => {
+      const { options, correct } = shuffleOptions(
+        ["+4 han", "+6 han", "+3 han"],
+        1,
+      );
+      return {
+        question: "Using the example above, how many total han from dora?",
+        options,
+        correct,
+      };
+    })(),
+  },
+  {
+    id: 24,
+    title: "Dora with Special Yaku",
+    type: "practice",
+    content: {
+      text: "Dora works alongside regular yaku. Some yaku have special interactions with dora tiles.",
+      visual:
+        "Hand: 🀙🀚🀛 🀜🀝🀞 🀟🀠🀡 🀂🀂🀂 🀆🀆\nYaku: Tanyao (1 han) + White Dragon (1 han) = 2 han\nDora indicator: 🀅 → 🀆 is dora\nDora count: 2 white dragons = +2 han\nTotal: 2 yaku han + 2 dora han = 4 han",
+      keyPoint:
+        "Dora han and yaku han are separate but add together. Dora can never substitute for required yaku (you still need at least 1 yaku to win).",
+    },
+    quiz: (() => {
+      const { options, correct } = shuffleOptions(
+        ["Cannot win - no yaku", "2 han total", "4 han total"],
+        0,
+      );
+      return {
+        question: "A hand has 0 yaku but 2 dora tiles. What happens?",
+        options,
+        correct,
+      };
+    })(),
+  },
+  {
+    id: 25,
+    title: "Complete Dora Scoring Integration",
+    type: "practice",
+    content: {
+      text: "Let's put it all together: fu, han from yaku, han from dora, and final scoring.",
+      visual:
+        "Hand: 🀛🀛🀛 🀜🀝🀞 🀟🀠🀡 🀆🀆🀆 🀄🀄\nWin: Riichi + Ron\n\nFu calculation:\n20 base + 10 ron + 4 triplet + 8 dragon triplet + 2 pair = 44 → 50 fu\n\nHan calculation:\nYaku: Riichi (1) + White Dragon (1) = 2 han\nDora: 🀚→🀛 dora (3 tiles) + 🀅→🀆 dora (3 tiles) = 6 han\nTotal: 2 + 6 = 8 han\n\nScoring: 50 fu × 2⁸ han = 50 × 256 = 12,800 base points",
+      keyPoint:
+        "Always calculate fu first, then count all han sources (yaku + dora), then apply the formula. High dora counts can create massive scores!",
+    },
+    quiz: (() => {
+      const { options, correct } = shuffleOptions(
+        ["12,800 points", "6,400 points", "25,600 points"],
+        0,
+      );
+      return {
+        question:
+          "In the example above, what are the base points before payment multipliers?",
+        options,
+        correct,
+      };
+    })(),
+  },
 ];
+
+export const TOTAL_LESSONS = lessons.length;
 
 export const getLessonById = (id) => {
   return lessons.find((lesson) => lesson.id === id);
@@ -375,14 +598,14 @@ export const getLessonById = (id) => {
 
 export const getNextLesson = (currentId) => {
   const nextId = currentId + 1;
-  return currentId < 1 || nextId > 16
+  return currentId < 1 || nextId > TOTAL_LESSONS
     ? undefined
     : lessons.find((lesson) => lesson.id === nextId);
 };
 
 export const getPreviousLesson = (currentId) => {
   const prevId = currentId - 1;
-  return currentId > 16 || prevId < 1
+  return currentId > TOTAL_LESSONS || prevId < 1
     ? undefined
     : lessons.find((lesson) => lesson.id === prevId);
 };

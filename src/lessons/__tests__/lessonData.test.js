@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import {
   lessons,
+  TOTAL_LESSONS,
   getLessonById,
   getNextLesson,
   getPreviousLesson,
@@ -8,8 +9,8 @@ import {
 
 describe("lessonData", () => {
   describe("lessons array", () => {
-    it("should contain 16 lessons", () => {
-      expect(lessons).toHaveLength(16);
+    it("should contain the correct number of lessons", () => {
+      expect(lessons).toHaveLength(TOTAL_LESSONS);
     });
 
     it("should have sequential lesson IDs", () => {
@@ -85,14 +86,14 @@ describe("lessonData", () => {
     });
 
     it("should return correct lesson for last ID", () => {
-      const lesson = getLessonById(16);
-      expect(lesson.id).toBe(16);
-      expect(lesson.title).toBe("Complete Scoring with Riichi");
+      const lesson = getLessonById(TOTAL_LESSONS);
+      expect(lesson.id).toBe(TOTAL_LESSONS);
+      expect(lesson.title).toBe("Complete Dora Scoring Integration");
     });
 
     it("should return undefined for invalid ID", () => {
       expect(getLessonById(0)).toBeUndefined();
-      expect(getLessonById(17)).toBeUndefined();
+      expect(getLessonById(TOTAL_LESSONS + 1)).toBeUndefined();
       expect(getLessonById(-1)).toBeUndefined();
     });
   });
@@ -109,13 +110,13 @@ describe("lessonData", () => {
     });
 
     it("should return undefined for last lesson", () => {
-      const nextLesson = getNextLesson(16);
+      const nextLesson = getNextLesson(TOTAL_LESSONS);
       expect(nextLesson).toBeUndefined();
     });
 
     it("should return undefined for invalid ID", () => {
       expect(getNextLesson(0)).toBeUndefined();
-      expect(getNextLesson(17)).toBeUndefined();
+      expect(getNextLesson(TOTAL_LESSONS + 1)).toBeUndefined();
     });
   });
 
@@ -131,13 +132,13 @@ describe("lessonData", () => {
     });
 
     it("should return previous lesson for last ID", () => {
-      const prevLesson = getPreviousLesson(16);
-      expect(prevLesson.id).toBe(15);
+      const prevLesson = getPreviousLesson(TOTAL_LESSONS);
+      expect(prevLesson.id).toBe(TOTAL_LESSONS - 1);
     });
 
     it("should return undefined for invalid ID", () => {
       expect(getPreviousLesson(0)).toBeUndefined();
-      expect(getPreviousLesson(17)).toBeUndefined();
+      expect(getPreviousLesson(TOTAL_LESSONS + 1)).toBeUndefined();
     });
   });
 
@@ -164,6 +165,27 @@ describe("lessonData", () => {
       // First few lessons should be concepts
       expect(lessons[0].type).toBe("concept");
       expect(lessons[1].type).toBe("concept");
+    });
+
+    it("should have comprehensive dora lessons at the end", () => {
+      // Check that dora lessons exist and have proper content
+      const doraLessons = lessons.filter((l) =>
+        l.title.toLowerCase().includes("dora"),
+      );
+      expect(doraLessons.length).toBeGreaterThanOrEqual(8); // Should have multiple dora lessons
+
+      // Check specific new dora lessons
+      const uraDoraLesson = getLessonById(21);
+      expect(uraDoraLesson.title).toBe("Ura Dora Mechanics");
+      expect(uraDoraLesson.content.text).toContain("riichi");
+
+      const kanDoraLesson = getLessonById(22);
+      expect(kanDoraLesson.title).toBe("Kan Dora Rules and Timing");
+      expect(kanDoraLesson.content.text).toContain("kan");
+
+      const integrationLesson = getLessonById(TOTAL_LESSONS);
+      expect(integrationLesson.title).toBe("Complete Dora Scoring Integration");
+      expect(integrationLesson.type).toBe("practice");
     });
   });
 });
