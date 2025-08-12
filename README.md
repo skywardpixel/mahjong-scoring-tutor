@@ -2,6 +2,8 @@
 
 An interactive web application that teaches Japanese Mahjong scoring from the ground up. Learn fu, han, and point calculations through a structured lesson system with hands-on practice.
 
+🚀 **Live Demo**: [https://skywardpixel.github.io/mahjong-scoring-tutor/](https://skywardpixel.github.io/mahjong-scoring-tutor/)
+
 ![Mahjong Scoring Tutor Screenshot](./public/screenshot.png)
 
 ## 🎯 Features
@@ -183,6 +185,28 @@ src/
 ├── hooks/              # Custom React hooks
 │   └── useLocalStorage.js # Persistent storage
 └── index.css           # Global styles and design system
+```
+
+## 🚀 Deployment
+
+The application is automatically deployed to GitHub Pages using GitHub Actions.
+
+### Automatic Deployment
+- **Trigger**: Push to `main` branch
+- **Process**: Build → Test → Deploy
+- **URL**: https://skywardpixel.github.io/mahjong-scoring-tutor/
+
+### Manual Deployment
+```bash
+npm run build
+# Upload dist/ folder to your hosting provider
+```
+
+### Development Build
+```bash
+npm run dev          # Start development server
+npm run build        # Build for production
+npm run preview      # Preview production build
 ```
 
 ## 🎯 Roadmap
