@@ -19,7 +19,8 @@
       "Bash(npm test)",
       "Bash(npm test:*)",
       "Bash(git rm:*)",
-      "Bash(gh repo view:*)"
+      "Bash(gh repo view:*)",
+      "Bash(npm run deploy:*)"
     ],
     "deny": []
   }
